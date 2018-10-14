@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS, cross_origin
 from flask_restful import reqparse, abort, Api, Resource
 from sklearn.externals import joblib
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
@@ -11,6 +12,8 @@ import pandas as pd
 
 app = Flask(__name__)
 api = Api(app)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 tfidf = joblib.load('tfidf_joblib')
