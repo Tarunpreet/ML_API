@@ -41,8 +41,10 @@ class PredictSentiment(Resource):
                     positive=positive+1
             if positive > negative:
                 pred='positive'
-            else:
+            elif negative>positive:
                 pred='negative'
+            else:
+            	pred='neutral'
             positive_perc=(float(positive)/(positive+negative))*100
             negative_perc=(float(negative)/(positive+negative))*100
             output={'prediction':pred,'positive_no':positive,'negative_no':negative,'positive_per':positive_perc,'negative_per':negative_perc,'party':query}
@@ -64,8 +66,10 @@ class PredictSentiment(Resource):
                     positive=positive+1
             if positive > negative:
                 pred='positive'
-            else:
+            elif negative>positive:
                 pred='negative'
+            else:
+            	pred='neutral'
             positive_perc=(float(positive)/(positive+negative))*100
             negative_perc=(float(negative)/(positive+negative))*100
             output={'prediction':pred,'positive_no':positive,'negative_no':negative,'positive_per':positive_perc,'negative_per':negative_perc,'party':query}
